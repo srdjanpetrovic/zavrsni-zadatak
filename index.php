@@ -20,7 +20,7 @@
     <?php foreach($posts as $post): ?>
 
       <div class="blog-post">
-        <a href="single_post.php?id=<?php echo $post->id; ?>" class="blog-post-title-link">
+        <a href="pages/single-post.php?id=<?php echo $post->id; ?>" class="blog-post-title-link">
           <h2 class="blog-post-title"><?php echo $post->title; ?></h2>
         </a>
         <p class="blog-post-meta">
