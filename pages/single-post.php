@@ -4,21 +4,21 @@
 	if(isset($_GET['id'])) {
 		$post_id = $_GET['id'];
 
-		$query = "SELECT id, title, body, author, created_at
+		$query = "SELECT posts.id, posts.title, posts.body, posts.created_at, author.firstname AS author_firstname, author.lastname AS author_lastname, author.gender AS author_gender
 		FROM posts
-		WHERE id = '$post_id'";
+		LEFT JOIN author ON posts.author_id = author.id
+		WHERE posts.id = '$post_id'";
 
 		$stmt = $pdo->prepare($query);
 		$stmt->execute();
 		$post = $stmt->fetch();
+
+		if($post->author_gender === 'm') {
+			$gender_class = 'is-male';
+		} else if($post->author_gender === 'f') {
+			$gender_class = 'is-female';
+    }
 	}
-
-	// PREPARED STATEMENTS (prepare & execute)
-	$stmt = $pdo->prepare($query);
-	$stmt->execute();
-	$posts = $stmt->fetchAll();
-
-
 
 	$queryComments = "SELECT id, author, text, post_id
 	FROM comments
@@ -41,7 +41,7 @@
 			<p class="blog-post-meta">
 				<span><?php echo $post->created_at; ?></span>
 				<span> by </span>
-				<a href="#"><?php echo $post->author; ?></a>
+				<a href="#" class="<?php echo $gender_class; ?>"><?php echo $post->author_firstname . ' ' . $post->author_lastname; ?></a>
 			</p>
 			<p><?php echo $post->body; ?></p>
 

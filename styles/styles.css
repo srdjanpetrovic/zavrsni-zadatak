@@ -24,3 +24,12 @@ a.blog-post-title-link {
 	line-height: 17px;
 	color: #ff0000;
 }
+
+/* Gender class */
+a.is-male {
+	color: skyblue;
+}
+
+a.is-female {
+	color: pink;
+}

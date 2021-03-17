@@ -26,6 +26,7 @@
 				<nav class="nav">
 					<a class="nav-link active" href="/index.php">Home</a>
 					<a class="nav-link" href="/pages/create-post.php">Create post</a>
+					<a class="nav-link" href="/pages/create-author.php">Create author</a>
 				</nav>
 			</div>
 		</div>
