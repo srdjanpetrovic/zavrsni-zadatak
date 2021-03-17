@@ -17,3 +17,10 @@ a.blog-post-title-link {
 .blog-post-title-link:hover {
 	text-decoration: underline;
 }
+
+/* Err Message */
+.c-err_message__text {
+	font-size: 13px;
+	line-height: 17px;
+	color: #ff0000;
+}
